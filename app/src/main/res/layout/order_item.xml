@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/six_line_item_height"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingLeft="@dimen/list_item_side_padding"
+              android:paddingRight="@dimen/list_item_side_padding"
+              android:paddingTop="@dimen/list_item_vertical_padding"
+              tools:background="@color/colorAccent">
+
+
+    <TextView
+        android:id="@+id/id_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/primary_text_size"
+        tools:text="Заказ #228"/>
+
+    <TextView
+        android:id="@+id/date_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Добавлен: 22-03-2016"/>
+
+
+    <TextView
+        android:id="@+id/status_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Статус:Доставлено"/>
+
+    <TextView
+        android:id="@+id/sum_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Сумма :5000,45 Р."/>
+
+    <TextView
+        android:id="@+id/client_name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="50"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Клиент:Валевич Сергей Владимирович"/>
+
+
+    <TextView
+        android:id="@+id/client_phone_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Телефон клиента: +375296586896"/>
+
+    <TextView
+        android:id="@+id/delivery_address_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLength="60"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Доставить: ул. академика Королёва д100 кв 15"/>
+
+    <TextView
+        android:id="@+id/employee_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:maxLength="50"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Консультант:Валевич Сергей Владимирович"/>
+
+    <TextView
+        android:id="@+id/employee_phone_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Телефон консультанта: +375296586896"/>
+
+</LinearLayout>

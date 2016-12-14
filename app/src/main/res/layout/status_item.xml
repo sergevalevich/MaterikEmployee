@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/single_line_text_item_height"
+              android:padding="@dimen/status_pading">
+
+    <TextView
+        android:id="@+id/status_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/primary_text_size_big"
+        android:textColor="@color/colorText"
+        tools:text = "Доставленные (15)"/>
+
+</LinearLayout>

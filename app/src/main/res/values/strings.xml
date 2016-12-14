@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Employee</string>
+    <string name="navigation_drawer_open" translatable="false">Open Navigation</string>
+    <string name="navigation_drawer_close" translatable="false">Close Navigation</string>
+    <string name="create_account_btn_title">Зарегистрироваться</string>
+    <string name="username_hint">Имя пользователя</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Пароль</string>
+    <string name="wrong_auth_input">Имя пользователя и пароль должны содержать от 5 до 10 символов!</string>
+    <string name="invalid_password_msg">Пароль должен содержать не менее 5 символов</string>
+    <string name="invalid_email_msg">Неправильный email</string>
+    <string name="invalid_input_msg">Неправильный email или пароль</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="log_in">Вход</string>
+    <string name="network_unavailable">Сеть недоступна</string>
+    <string name="auth_successfull">Авторизация прошла успешно</string>
+    <string name="nav_drawer_catalog">Каталог</string>
+    <string name="nav_drawer_cart">Корзина</string>
+    <string name="nav_drawer_orders">Заказы</string>
+    <string name="nav_drawer_exit">Выход</string>
+    <string name="default_username">Сергей Валевич</string>
+    <string name="default_user_email">sergeyvalevich@gmail.com</string>
+    <string name="price_label">Цена:</string>
+    <string name="articul_label">Артикул:</string>
+    <string name="amount_label">В наличии:</string>
+    <string name="stock_empty">Нет</string>
+    <string name="add_to_cart">Добавить в корзину</string>
+    <string name="added_to_cart">Товар добавлен в корзину</string>
+    <string name="input">Введите количество</string>
+    <string name="input_content">content</string>
+    <string name="unknow_error">Неизвестная ошибка</string>
+    <string name="pay">Оформить заказ</string>
+    <string name="large_input">Нет столько,брат</string>
+    <string name="remove_item_cart">Удалить из корзины?</string>
+    <string name="features_title">Дополнительные характеристики</string>
+    <string name="action_search">поиск</string>
+    <string name="search_hint">Поиск</string>
+    <string name="name_hint">Ф.И.О. заказчика</string>
+    <string name="address_hint">Адрес доставки</string>
+    <string name="phone_hint">Контактный телефон</string>
+    <string name="place_order">Оформить</string>
+    <string name="order_error">Не удалось оставить заказ</string>
+    <string name="order_success">Заказ принят!</string>
+    <string name="check_input">Заполните все поля</string>
+    <string name="order_info">Данные заказчика</string>
+    <string name="empty_cart">Корзина пуста</string>
+    <string name="go_to_cart">Перейти</string>
+    <string name="order_products_title">Товары</string>
+    <string name="client_name_title">Имя клиента</string>
+    <string name="client_surname_title">Фамилия клиента</string>
+    <string name="client_email_title">Электронный адрес</string>
+    <string name="client_phone_title">Контактный телефон</string>
+    <string name="client_address_title">Адрес доставки</string>
+    <string name="exit_no_save">Выйти без сохранения?</string>
+    <string name="client_pass_title">Пароль учётной записи</string>
+    <string name="private_title">Личная информация</string>
+    <string name="saving_message">Сохранение</string>
+    <string name="nav_drawer_stock">Склад</string>
+    <string name="nav_drawer_clients">Клиенты</string>
+    <string name="nav_drawer_employees">Сотрудники</string>
+    <string name="stock_address_title">Склад:</string>
+    <string name="order_title">Заказы</string>
+    <string name="storage_unavailable">Хранилище недоступно</string>
+    <string name="error_file_read">Ошибка при чтении файла</string>
+    <string name="error_file_write">Ошибка при записи файла</string>
+
+    <!--product headers-->
+    <string name="product_name">Название</string>
+    <string name="product_category">Категория</string>
+    <string name="product_price">Цена</string>
+    <string name="product_articul">Артикул</string>
+    <string name="product_image">Изобр.</string>
+    <string name="product_amount">Кол-во</string>
+    <string name="product_metrics">Метрика</string>
+    <string name="product_stock_address">Склад</string>
+
+    <!--category headers-->
+    <string name="category_name">Название</string>
+    <string name="category_image">Изобр.</string>
+
+    <!--stock headers-->
+    <string name="stock_address">Адрес</string>
+
+    <!--feature headers-->
+    <string name="feature_name">Характеристика</string>
+    <string name="feature_value">Значение</string>
+    <string name="feature_product">Артикул продукта</string>
+    <string name="sheet_title_products">Товары</string>
+    <string name="sheet_title_categories">Категории</string>
+    <string name="sheet_title_features">Характеристики</string>
+    <string name="sheet_title_stocks">Склады</string>
+    <string name="action_export">Экспорт</string>
+    <string name="action_import">Импорт</string>
+    <string name="stats_storage">Ведомости</string>
+    <string name="stats_format">.xls</string>
+    <string name="error_export">Ошибка при экспорте</string>
+    <string name="error_import">Ошибка при импорте</string>
+    <string name="exporting">Экспорт каталога в .xls</string>
+    <string name="please_wait">Подождите</string>
+    <string name="no_file_explorer">Установите менеждер файлов</string>
+
+</resources>

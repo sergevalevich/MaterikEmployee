@@ -1,0 +1,47 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="primary_text_size">16sp</dimen>
+    <dimen name="secondary_text_size">14sp</dimen>
+    <dimen name="button_corner_radius">4dp</dimen>
+    <dimen name="login_buttons_border_width">1dp</dimen>
+    <dimen name="login_buttons_border_width_pressed">2dp</dimen>
+    <dimen name="login_buttons_width">108dp</dimen>
+    <dimen name="input_text_bottom_padding">8dp</dimen>
+    <dimen name="login_buttons_height">48dp</dimen>
+    <dimen name="auth_padding">16dp</dimen>
+    <dimen name="sign_up_label_padding">4dp</dimen>
+
+    <dimen name="drawer_header_layout_height">172dp</dimen>
+    <dimen name="drawer_status_bar_height">25dp</dimen>
+    <dimen name="profile_margin">16dp</dimen>
+    <dimen name="profile_image_size">64dp</dimen>
+    <dimen name="subtitle_height">56dp</dimen>
+    <dimen name="subtitle_text_size">14sp</dimen>
+    <dimen name="drawer_header_content_divider">5dp</dimen>
+    <dimen name="single_line_item_height">72dp</dimen>
+    <dimen name="single_line_text_item_height">56dp</dimen>
+    <dimen name="category_image_size">56dp</dimen>
+    <dimen name="two_line_item_height">72dp</dimen>
+    <dimen name="six_line_item_height">196dp</dimen>
+    <dimen name="three_line_item_height">96dp</dimen>
+    <dimen name="four_line_item_height">116dp</dimen>
+    <dimen name="list_item_side_padding">16dp</dimen>
+    <dimen name="list_item_vertical_padding">8dp</dimen>
+    <dimen name="primary_detail_padding">4dp</dimen>
+    <dimen name="product_details_padding">12dp</dimen>
+    <dimen name="product_image_size_large">240dp</dimen>
+    <dimen name="cart_title_padding">16dp</dimen>
+    <dimen name="product_desc_divider">8dp</dimen>
+    <dimen name="primary_text_size_big">18sp</dimen>
+    <dimen name="expanded_title_margin_start">48dp</dimen>
+    <dimen name="expanded_title_margin_end">64dp</dimen>
+    <dimen name="collapsing_image_height">240dp</dimen>
+    <dimen name="private_padding">16dp</dimen>
+    <dimen name="private_field_divider">16dp</dimen>
+    <dimen name="status_pading">16dp</dimen>
+    <dimen name="stock_item_padding">16dp</dimen>
+    <dimen name="fab_margin_right">16dp</dimen>
+    <dimen name="fab_margin_bottom">16dp</dimen>
+</resources>

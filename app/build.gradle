@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    dexOptions {
+        maxProcessCount 2
+        javaMaxHeapSize "3g"
+    }
+
+    defaultConfig {
+        applicationId "com.valevich.materikemployee"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+//DbFlow
+def dbflow_version = "3.0.0-beta6"
+
+//RxJava
+final rxJavaVer = '1.1.5'
+final rxAndroidVer = '1.2.0'
+
+//Rest
+final okHttpVer = '3.4.1'
+final retrofitVer = '2.1.0'
+final gsonVer = '2.6.2'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
+    apt "org.androidannotations:androidannotations:4.0.0"
+    compile "org.androidannotations:androidannotations-api:4.0.0"
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    compile "io.reactivex:rxjava:$rxJavaVer"
+    compile "io.reactivex:rxandroid:$rxAndroidVer"
+    compile "com.squareup.okhttp3:okhttp:$okHttpVer"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVer"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVer"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVer"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVer"
+    compile "com.google.code.gson:gson:$gsonVer"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup:otto:1.3.8'
+    apt "org.androidannotations:otto:4.0.0"
+    compile 'com.jakewharton.timber:timber:4.1.2'
+    compile 'me.zhanghai.android.materialprogressbar:library:1.1.7'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
+    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+    compile 'org.apache.poi:poi:3.16-beta1'
+    compile 'poi:poi:3.1-FINAL'
+}

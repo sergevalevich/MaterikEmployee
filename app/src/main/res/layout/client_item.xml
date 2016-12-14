@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              tools:background="@color/colorAccent"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingLeft="@dimen/list_item_side_padding"
+              android:paddingRight="@dimen/list_item_side_padding"
+              android:paddingTop="@dimen/list_item_vertical_padding"
+              android:layout_height="@dimen/three_line_item_height">
+
+
+    <TextView
+        android:id="@+id/client_fullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/primary_text_size"
+        android:maxLength="40"
+        android:maxLines="1"
+        android:textStyle="italic"
+        tools:text = "Валевич Сергей Владимирович"/>
+
+    <TextView
+        android:id="@+id/client_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        android:maxLength="40"
+        android:maxLines="1"
+        tools:text = "romsolog@mail.ru"/>
+
+    <TextView
+        android:id="@+id/client_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        android:maxLength="40"
+        android:maxLines="1"
+        tools:text = "+375296586896"/>
+
+    <TextView
+        android:id="@+id/client_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        android:maxLength="40"
+        android:maxLines="1"
+        tools:text = "Шаранговича 22-45"/>
+
+</LinearLayout>

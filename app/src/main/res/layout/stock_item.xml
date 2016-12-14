@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/single_line_text_item_height">
+    <TextView
+        android:id="@+id/stock_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/primary_text_size_big"
+        android:padding="@dimen/stock_item_padding"
+        android:maxLines="1"
+        android:maxLength="40"
+        android:ellipsize="end"
+        tools:text = ""
+        android:textColor="@color/colorText"/>
+
+</LinearLayout>

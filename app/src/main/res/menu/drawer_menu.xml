@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group_feature"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_catalog"
+            android:title="@string/nav_drawer_catalog"
+            android:icon="@drawable/ic_catalog"
+            android:checked="true">
+        </item>
+
+        <item
+            android:id="@+id/drawer_orders"
+            android:title="@string/nav_drawer_orders"
+            android:icon="@drawable/ic_orders">
+        </item>
+
+        <item
+            android:id="@+id/drawer_stock"
+            android:title="@string/nav_drawer_stock"
+            android:icon="@drawable/ic_stock">
+        </item>
+
+        <item
+            android:id="@+id/drawer_clients"
+            android:title="@string/nav_drawer_clients"
+            android:icon="@drawable/ic_clients">
+        </item>
+
+        <item
+            android:id="@+id/drawer_employees"
+            android:title="@string/nav_drawer_employees"
+            android:icon="@drawable/ic_employees">
+        </item>
+
+    </group>
+
+    <group
+        android:id="@+id/group_exit"
+        android:checkableBehavior="single">
+        <item
+            android:id = "@+id/drawer_exit"
+            android:title="@string/nav_drawer_exit"
+            android:icon="@drawable/ic_exit"
+            android:checkable="false">
+        </item>
+    </group>
+</menu>

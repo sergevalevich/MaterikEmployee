@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/activity_auth">
+
+    </include>
+
+    <TextView
+        android:id="@+id/sign_up_label"
+        android:text="@string/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/primary_text_size"
+        android:textColor="@color/auth_label"
+        android:padding="@dimen/sign_up_label_padding"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

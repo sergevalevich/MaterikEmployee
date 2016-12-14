@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/single_line_item_height"
+              android:orientation="horizontal"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingTop="@dimen/list_item_vertical_padding"
+    android:weightSum="9">
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="@dimen/category_image_size"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        tools:src="@drawable/smesi"/>
+
+
+    <TextView
+        android:layout_weight="3"
+        android:id="@+id/product_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="Штукатурка цементная azazaazaaasdadsaasdasdz"/>
+
+    <TextView
+        android:layout_weight="3"
+        android:id="@+id/amount_label"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/primary_text_size"
+        tools:text="100 кг."/>
+
+</LinearLayout>

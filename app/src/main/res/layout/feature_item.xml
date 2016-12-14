@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/two_line_item_height"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingLeft="@dimen/list_item_side_padding"
+              android:paddingRight="@dimen/list_item_side_padding"
+              android:paddingTop="@dimen/list_item_vertical_padding">
+
+    <TextView
+        android:id="@+id/feature_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:textColor="@color/colorTextLight"
+        android:textSize="@dimen/primary_text_size"
+        tools:text="Тип основания"/>
+
+    <TextView
+        android:id="@+id/feature_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/secondary_text_size"
+        tools:text="бетон,кирпич,газоблок"/>
+
+</LinearLayout>
