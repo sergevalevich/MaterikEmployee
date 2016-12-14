@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ShareCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,10 +15,12 @@ import com.squareup.otto.Subscribe;
 import com.valevich.materikemployee.R;
 import com.valevich.materikemployee.bus.EventBus;
 import com.valevich.materikemployee.bus.events.ExportFinishedEvent;
+import com.valevich.materikemployee.bus.events.ImportFinishedEvent;
 import com.valevich.materikemployee.network.RestService;
 import com.valevich.materikemployee.network.model.request.Credentials;
 import com.valevich.materikemployee.network.model.response.StockModel;
 import com.valevich.materikemployee.services.ExportService_;
+import com.valevich.materikemployee.services.ImportService_;
 import com.valevich.materikemployee.ui.adapters.StockAdapter;
 import com.valevich.materikemployee.util.ConstantsManager;
 import com.valevich.materikemployee.util.FileHelper;
@@ -28,7 +29,6 @@ import com.valevich.materikemployee.util.NetworkStateChecker;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.ViewById;
@@ -41,7 +41,6 @@ import java.util.List;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-import timber.log.Timber;
 
 @OptionsMenu(R.menu.stock_menu)
 @EFragment(R.layout.fragment_stocks)
@@ -62,6 +61,9 @@ public class StocksFragment extends Fragment {
     @StringRes(R.string.stats_storage)
     String storageDir;
 
+    @StringRes(R.string.stats_format)
+    String statsFormat;
+
     @StringRes(R.string.error_export)
     String exportErrorMessage;
 
@@ -70,6 +72,12 @@ public class StocksFragment extends Fragment {
 
     @StringRes(R.string.no_file_explorer)
     String noFileExplorerMessage;
+
+    @StringRes(R.string.exporting)
+    String exportMessage;
+
+    @StringRes(R.string.importing)
+    String importMessage;
 
     @Bean
     RestService restService;
@@ -105,27 +113,44 @@ public class StocksFragment extends Fragment {
 
     @OptionsItem(R.id.action_export)
     void exportSelected() {
-        showDialog();
+        showDialog(exportMessage);
         ExportService_.intent(getContext()).start();
     }
 
     @OptionsItem(R.id.action_import)
     void importSelected() {
-        List<String> files = fileHelper.findFiles(new File(Environment.getExternalStorageDirectory(), storageDir), ".xls", new ArrayList<>());
-        for (String f : files) Timber.d(f);
+        List<String> files = fileHelper.findFiles(new File(Environment.getExternalStorageDirectory(), storageDir), statsFormat, new ArrayList<>());
+        new MaterialDialog.Builder(getContext())
+                .items(fileHelper.formatFiles(files))
+                .itemsCallbackSingleChoice(-1, (dialog1, view, which, text) -> {
+                    if (which != -1) {
+                        showDialog(importMessage);
+                        ImportService_.intent(getContext())
+                                .extra(ConstantsManager.FILE_EXTRA, files.get(which))
+                                .start();
+                    }
+                    return true;
+                }).positiveText(android.R.string.ok).show();
     }
 
     @Subscribe
-    public void onExportFinished(ExportFinishedEvent exportFinishedEvent) {
+    public void onExportFinished(ExportFinishedEvent event) {
         hideDialog();
-        if (exportFinishedEvent.isSuccessFull()) {
-            showStatsFolder();
+        if (event.isSuccessFull()) {
+            shareFile(event.getMessage());
         } else {
-            String message = exportFinishedEvent.getMessage();
+            String message = event.getMessage();
             notifyUserWith(message == null || message.isEmpty()
                     ? exportErrorMessage
                     : message);
         }
+    }
+
+    @Subscribe
+    public void onImportFinished(ImportFinishedEvent event) {
+        hideDialog();
+        String message = event.getMessage();
+        notifyUserWith(message == null || message.isEmpty() ? exportErrorMessage : message);
     }
 
     private void unSubscribe() {
@@ -177,28 +202,17 @@ public class StocksFragment extends Fragment {
         if (swipeRefreshLayout != null) swipeRefreshLayout.setRefreshing(isRefreshing);
     }
 
-    private void showStatsFolder() {
-        Uri selectedUri = Uri.parse(Environment.getExternalStorageDirectory()
-                + File.separator + storageDir + File.separator);
-//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//        intent.setDataAndType(selectedUri, "resource/folder");
-//
-//        if (intent.resolveActivityInfo(getContext().getPackageManager(), 0) != null) {
-//            startActivity(intent);
-//        } else {
-//            notifyUserWith(noFileExplorerMessage);
-//        }
-        Intent shareIntent = ShareCompat.IntentBuilder.from(getActivity())
-                .setType("file/")
-                .setStream(selectedUri)
-                .getIntent();
-        startActivity(shareIntent);
-
+    private void shareFile(String fileName) {
+        File file = new File(Environment.getExternalStorageDirectory()
+                + File.separator + storageDir + File.separator + fileName);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(file), "application/vnd.ms-excel");
+        startActivity(intent);
     }
 
-    private void showDialog() {
+    private void showDialog(String title) {
         dialog = new MaterialDialog.Builder(getContext())
-                .title(R.string.exporting)
+                .title(title)
                 .content(R.string.please_wait)
                 .progress(true, 0)
                 .show();

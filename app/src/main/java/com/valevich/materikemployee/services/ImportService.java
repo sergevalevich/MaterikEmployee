@@ -5,28 +5,22 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.valevich.materikemployee.R;
 import com.valevich.materikemployee.bus.EventBus;
-import com.valevich.materikemployee.bus.events.ExportFinishedEvent;
+import com.valevich.materikemployee.bus.events.ImportFinishedEvent;
 import com.valevich.materikemployee.network.RestService;
 import com.valevich.materikemployee.network.model.request.Credentials;
+import com.valevich.materikemployee.util.ConstantsManager;
 import com.valevich.materikemployee.util.ExcelHelper;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EService;
-import org.androidannotations.annotations.res.StringRes;
 
-
-import java.util.Date;
-
-import rx.Observable;
 import rx.Subscription;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 
-
 @EService
-public class ExportService extends Service {
+public class ImportService extends Service {
 
     private Subscription subscription;
 
@@ -39,24 +33,19 @@ public class ExportService extends Service {
     @Bean
     EventBus bus;
 
-    @StringRes(R.string.stats_format)
-    String statsFormat;
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-
-        String fileName = new Date().toString() + statsFormat;
+        String fileName = intent.getStringExtra(ConstantsManager.FILE_EXTRA);
         Credentials credentials = new Credentials();
-        subscription = Observable.zip(restService.getStocks(credentials),
-                restService.getCatalog(credentials, ""),
-                (stockModels, catalogItems) -> excelHelper.exportCatalog(fileName,stockModels,catalogItems))
+        subscription = excelHelper.importCatalog(fileName)
+                .flatMap(model -> restService.bulkUpdate(model,credentials))
                 .subscribeOn(Schedulers.io())
                 .doAfterTerminate(this::stopSelf)
-                .subscribe(isSuccessful -> {
-                    bus.post(new ExportFinishedEvent(true,fileName));
+                .subscribe(response -> {
+                    bus.post(new ImportFinishedEvent(response.getMessage()));
                 }, throwable -> {
-                    bus.post(new ExportFinishedEvent(false,throwable.getMessage()));
+                    bus.post(new ImportFinishedEvent(throwable.getMessage()));
                 });
 
         return START_STICKY;
@@ -74,5 +63,4 @@ public class ExportService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
 }

@@ -95,6 +95,50 @@ public class ProductItem implements Parcelable {
         return featureList;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setMetrics(String metrics) {
+        this.metrics = metrics;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setArticul(String articul) {
+        this.articul = articul;
+    }
+
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
+    }
+
+    public void setOrderAmount(int orderAmount) {
+        this.orderAmount = orderAmount;
+    }
+
+    public void setStockAddress(String stockAddress) {
+        this.stockAddress = stockAddress;
+    }
+
+    public void setFeatureList(List<FeatureItem> featureList) {
+        this.featureList = featureList;
+    }
+
     @Override
     public int describeContents() {
         return 0;

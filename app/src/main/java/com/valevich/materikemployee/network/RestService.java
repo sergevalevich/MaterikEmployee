@@ -2,10 +2,12 @@ package com.valevich.materikemployee.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.valevich.materikemployee.network.model.request.BulkUpdateModel;
 import com.valevich.materikemployee.network.model.request.Credentials;
 import com.valevich.materikemployee.network.model.response.AuthModel;
 import com.valevich.materikemployee.network.model.response.CatalogItem;
 import com.valevich.materikemployee.network.model.response.ClientModel;
+import com.valevich.materikemployee.network.model.response.DefaultResponse;
 import com.valevich.materikemployee.network.model.response.EmployeeModel;
 import com.valevich.materikemployee.network.model.response.StatusItem;
 import com.valevich.materikemployee.network.model.response.StockModel;
@@ -78,6 +80,10 @@ public class RestService {
 
     public Observable<List<StatusItem>> getOrders(Credentials credentials) {
         return mGameApi.getOrders(credentials.getUserEmail(),credentials.getUserPassword());
+    }
+
+    public Observable<DefaultResponse> bulkUpdate(BulkUpdateModel model, Credentials credentials) {
+        return mGameApi.bulkUpdate(credentials.getUserEmail(),credentials.getUserPassword(),model);
     }
 
 }

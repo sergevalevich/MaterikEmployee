@@ -96,7 +96,9 @@
     <string name="error_export">Ошибка при экспорте</string>
     <string name="error_import">Ошибка при импорте</string>
     <string name="exporting">Экспорт каталога в .xls</string>
+    <string name="importing">Обновление каталога</string>
     <string name="please_wait">Подождите</string>
     <string name="no_file_explorer">Установите менеждер файлов</string>
+    <string name="id">id</string>
 
 </resources>

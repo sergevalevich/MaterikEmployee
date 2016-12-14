@@ -12,6 +12,10 @@ public class FeatureItem implements Parcelable{
         value = in.readString();
     }
 
+    public FeatureItem() {
+
+    }
+
     public static final Creator<FeatureItem> CREATOR = new Creator<FeatureItem>() {
         @Override
         public FeatureItem createFromParcel(Parcel in) {
@@ -30,6 +34,14 @@ public class FeatureItem implements Parcelable{
 
     public String getValue() {
         return value;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override

@@ -53,6 +53,9 @@
 
         <service
             android:name=".services.ExportService_"/>
+        <service
+            android:name=".services.ImportService_"/>
+
     </application>
 
 </manifest>

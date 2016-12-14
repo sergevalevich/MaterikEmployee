@@ -23,4 +23,20 @@ public class CatalogItem {
     public List<ProductItem> getProducts() {
         return products;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setProducts(List<ProductItem> products) {
+        this.products = products;
+    }
 }

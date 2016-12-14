@@ -1,10 +1,12 @@
 package com.valevich.materikemployee.network;
 
 
+import com.valevich.materikemployee.network.model.request.BulkUpdateModel;
 import com.valevich.materikemployee.network.model.request.Credentials;
 import com.valevich.materikemployee.network.model.response.AuthModel;
 import com.valevich.materikemployee.network.model.response.CatalogItem;
 import com.valevich.materikemployee.network.model.response.ClientModel;
+import com.valevich.materikemployee.network.model.response.DefaultResponse;
 import com.valevich.materikemployee.network.model.response.EmployeeModel;
 import com.valevich.materikemployee.network.model.response.StatusItem;
 import com.valevich.materikemployee.network.model.response.StockModel;
@@ -42,6 +44,12 @@ interface KursachApi {
     @GET("orders/get")
     Observable<List<StatusItem>> getOrders(@Header("email") String email,
                                            @Header("password") String password);
+
+    @POST("update/bulk")
+    Observable<DefaultResponse> bulkUpdate(
+            @Header("email") String email,
+            @Header("password") String password,
+            @Body BulkUpdateModel model);
 
 
 }
